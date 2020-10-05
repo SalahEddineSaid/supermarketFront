@@ -1,0 +1,59 @@
+
+    
+  
+        
+                  
+               <br/>
+               <br/>
+                  <mat-card class="example-card">
+                        <mat-card-header>
+                          <div mat-card-avatar class="example-header-image"></div>
+                          <mat-card-title>Basket</mat-card-title>
+                        </mat-card-header>
+                        <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+                                
+                        <mat-card-content>
+                                        
+                                     
+                                          <p>
+                                                <mat-form-field appearance="outline">
+                                                  <mat-label> Name</mat-label>
+                                                  <input matInput  ngModel name="firstName" [(ngModel)]="model.firstName" #firstName="ngModel" >{{productListbyIdToChild.name}}
+                                                  <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                                                  <mat-hint>name</mat-hint>
+                                                </mat-form-field>
+                                              </p>
+                                      <p>
+                                            <mat-form-field appearance="outline">
+                                              <mat-label>Price</mat-label>
+                                              <input matInput placeholder="price" [(ngModel)]="form.price"  name="price" >{{productListbyIdToChild.price}}
+                                              <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                                              <mat-hint>Price [£]</mat-hint>
+                                            </mat-form-field>
+                                          </p>
+                                          <p>
+                                                <mat-form-field appearance="outline">
+                                                  <mat-label>Offer</mat-label>
+                                                  <input matInput placeholder="Offer" [(ngModel)]="form.idOffer"  name="idOffer" >{{productListbyIdToChild.idOffer}}
+                                                  <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                                                  <mat-hint>Offer</mat-hint>
+                                                </mat-form-field>
+                                              </p>
+                                              
+                                              <p>
+                                                    <mat-form-field appearance="outline">
+                                                      <mat-label>Qantity</mat-label>
+                                                      <input matInput placeholder="qantity"  [(ngModel)]="form.qantity"  name="qantity">
+                                                      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                                                      <mat-hint>Qantity</mat-hint>
+                                                    </mat-form-field>
+                                                  </p>
+                                               
+                        </mat-card-content>
+                        <mat-card-actions>
+                                <button type="submit"  class="btn btn-primary">Add to basket</button>
+                        </mat-card-actions>
+                        </form>
+                    </mat-card>
+
+                    
