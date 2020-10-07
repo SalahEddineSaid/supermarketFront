@@ -5,28 +5,27 @@
                   
                <br/>
                <br/>
-                  <mat-card class="example-card">
+                 <mat-card class="example-card  center-screen">
                         <mat-card-header>
                           <div mat-card-avatar class="example-header-image"></div>
-                          <mat-card-title>Basket</mat-card-title>
+                          <mat-card-title>Chart</mat-card-title>
                         </mat-card-header>
-                        <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
                                 
                         <mat-card-content>
                                         
                                      
                                           <p>
                                                 <mat-form-field appearance="outline">
-                                                  <mat-label> Name</mat-label>
-                                                  <input matInput  ngModel name="firstName" [(ngModel)]="model.firstName" #firstName="ngModel" >{{productListbyIdToChild.name}}
+                                                  <mat-label> product</mat-label>
+                                                  <input matInput disabled >{{productObject.nameProduct}}
                                                   <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-                                                  <mat-hint>name</mat-hint>
+                                                  <mat-hint>product</mat-hint>
                                                 </mat-form-field>
                                               </p>
-                                      <p>
+                                        <p>
                                             <mat-form-field appearance="outline">
                                               <mat-label>Price</mat-label>
-                                              <input matInput placeholder="price" [(ngModel)]="form.price"  name="price" >{{productListbyIdToChild.price}}
+                                              <input matInput disabled placeholder="price" >{{productObject.price}}
                                               <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
                                               <mat-hint>Price [£]</mat-hint>
                                             </mat-form-field>
@@ -34,16 +33,16 @@
                                           <p>
                                                 <mat-form-field appearance="outline">
                                                   <mat-label>Offer</mat-label>
-                                                  <input matInput placeholder="Offer" [(ngModel)]="form.idOffer"  name="idOffer" >{{productListbyIdToChild.idOffer}}
+                                                  <input matInput  disabled placeholder="Offer"  >{{productObject.idOffer}}
                                                   <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
                                                   <mat-hint>Offer</mat-hint>
                                                 </mat-form-field>
                                               </p>
                                               
-                                              <p>
+                                                <p>
                                                     <mat-form-field appearance="outline">
                                                       <mat-label>Qantity</mat-label>
-                                                      <input matInput placeholder="qantity"  [(ngModel)]="form.qantity"  name="qantity">
+                                                      <input matInput type="number" placeholder="qantity" [(ngModel)]="quantity" >
                                                       <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
                                                       <mat-hint>Qantity</mat-hint>
                                                     </mat-form-field>
@@ -51,9 +50,29 @@
                                                
                         </mat-card-content>
                         <mat-card-actions>
-                                <button type="submit"  class="btn btn-primary">Add to basket</button>
+                                <button type="submit" (click)="onSubmit()" class="btn btn-primary">Add to chart</button>
                         </mat-card-actions>
-                        </form>
+                        
                     </mat-card>
 
-                    
+                    <br/>
+
+ 
+            <mat-card class="example-card center-screen-total">
+              <mat-card-header>
+                <div mat-card-avatar class="example-header-image"></div>
+                <mat-card-title>Total price</mat-card-title>
+              </mat-card-header>
+         
+                    <p>
+                      <mat-form-field appearance="outline">
+                        <mat-label>Total price</mat-label>
+                        <input matInput  disabled placeholder="Total price"  >{{sumPrice}}
+                        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                        <mat-hint>Total price</mat-hint>
+                      </mat-form-field>
+                    </p>
+
+              
+              </mat-card>
+              

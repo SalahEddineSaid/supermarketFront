@@ -10,10 +10,10 @@ import { categorys } from 'src/app/models/model.categorys';
 export class ProductService {
   
   public productList : product[] = [
-    {name :"banana", price:1, idOffer :Offers.Unitprice,idCategory:categorys.fruits},
-    {name :"Avocado", price:2, idOffer : Offers.BuyOneGetOneFree,idCategory:categorys.fruits},
-    {name :"melon", price:3, idOffer : Offers.ThreeForPriceOfTwo,idCategory:categorys.fruits},
-    {name :"ananas", price:4, idOffer : Offers.ThreeForPriceOfTwo,idCategory:categorys.vegitable}
+    {nameProduct :"banana", price:3, idOffer :Offers.Unitprice,idCategory:categorys.fruits},
+    {nameProduct :"Avocado", price:4, idOffer : Offers.BuyOneGetOneFree,idCategory:categorys.fruits},
+    {nameProduct :"melon", price:5, idOffer : Offers.ThreeForPriceOfTwo,idCategory:categorys.fruits},
+    {nameProduct :"ananas", price:6, idOffer : Offers.ThreeForPriceOfTwo,idCategory:categorys.vegitable}
     
   ];
 
@@ -24,9 +24,8 @@ export class ProductService {
     
    }
   
-
+   /* get all products in category Id */
    getProductsByIdCategory(id) : Array<product>   {
-    console.log('Service => getProducts by id='+id); 
     
     return this.productList.filter(e=>e.idCategory==id);
   

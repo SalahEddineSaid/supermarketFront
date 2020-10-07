@@ -17,9 +17,8 @@ export class ProductComponent implements OnInit,AfterViewInit {
 
   @ViewChild(MatPaginator,{static: true}) paginator: MatPaginator;
   @ViewChild(MatSort,{static: true}) sort: MatSort;
-  firstName: string;
-  lastName: string;
-  displayedColumns: string[] = ['name', 'price','Offers','actions'];
+
+  displayedColumns: string[] = ['nameProduct', 'price','Offers','actions'];
   dataSource: MatTableDataSource<product>;
   public productList : Array<product> = [];
   public productListbyId : Array<product> = [];
@@ -27,20 +26,16 @@ export class ProductComponent implements OnInit,AfterViewInit {
   getCtegories :string[];
   animal: string;
   name: string;
+
   ngOnInit() {
     this.getCtegories = this.productServices.getENUM(categorys);
-    this.firstName = 'John';
-    this.lastName = 'Doe';
+
    }
   
- 
-  constructor(public productServices:ProductService) { 
+  constructor(public productServices:ProductService) {}
 
-  }
-
- 
+  /* get products for each categorys */
   getProductsByIdCategoryID(id){
-    console.log("id=="+id)
 
     this.productListbyId=this.productServices.getProductsByIdCategory(id);
   
@@ -50,9 +45,8 @@ export class ProductComponent implements OnInit,AfterViewInit {
     this.dataSource.sort = this.sort;
   }
  
- ngAfterViewInit() {
-
-  }
+ ngAfterViewInit() {}
+ /* filtre product in data table */
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
@@ -62,10 +56,7 @@ export class ProductComponent implements OnInit,AfterViewInit {
     }
   }
   openDialog(row){ 
-    
-    this.productListbyIdToChild=row;
-    console.log("idOffer==="+this.productListbyIdToChild);
-    
+    this.productListbyIdToChild=row;    
   }
 }
 

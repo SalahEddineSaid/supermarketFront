@@ -7,6 +7,7 @@ import { ContactComponent } from './modules/general/contact/contact.component';
 import { HomeComponent } from './modules/general/home/home.component';
 import { SigninComponent } from './modules/general/signin/signin.component';
 import { NotFoundComponent } from './modules/general/not-found/not-found.component';
+import { ProductComponent } from 'src/app/modules/kata/product/product.component';
 
 
 const routes: Routes = [
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'contact', component: ContactComponent },
   { path: 'about', component: AboutComponent },
   { path: 'signin', component: SigninComponent },
+  { path: 'supermarcket', component: ProductComponent, },
   { path: '**', component: NotFoundComponent }
 ];
 

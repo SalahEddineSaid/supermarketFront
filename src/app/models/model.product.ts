@@ -1,10 +1,10 @@
 
 
-export interface product {
-
-      name:string;
-      price:number;
-      idOffer : number;
-      idCategory:number;
-  
-}
+export class product {
+      
+            nameProduct:string;
+            price:number;
+            idOffer : number;
+            idCategory:number;
+        
+      }

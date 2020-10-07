@@ -1,7 +1,11 @@
 import { Component, OnInit,OnChanges,SimpleChanges,Inject,Input} from '@angular/core';
 import { ViewEncapsulation} from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material/dialog";
 import {product} from "src/app/models/model.product";
+import { basket } from 'src/app/models/model.basket';
+import { AfterViewInit,ViewChild } from '@angular/core';
+import {MatSort,MatPaginator, MatTableDataSource } from '@angular/material';
+import { BasketService } from 'src/app/services/basket.service';
+
 
 
 
@@ -10,30 +14,29 @@ import {product} from "src/app/models/model.product";
   templateUrl: './basket.component.html',
   styleUrls: ['./basket.component.css']
 })
-export class BasketComponent implements OnInit, OnChanges {
+export class BasketComponent implements OnInit,OnChanges {
 
-  @Input() firstName: string;
-  @Input() lastName: string;
-  @Input() productListbyIdToChild;
+  @Input() productListbyIdToChild:product;
+  public productObject:product;
+  public basketListSubmit : Array<basket> = [];
+  /*total price*/
+  sumPrice:number;
   form: any = {};
   name:string;
-  model: any = {};
-  /*
-  constructor(
-  
-      private dialogRef: MatDialogRef<BasketComponent>,
-      @Inject(MAT_DIALOG_DATA) public produitdata:product ) {
 
-  }
-*/
-constructor(){}
+  quantity:number;
+
+constructor(public basketService:BasketService){}
   ngOnInit() {
-    this.model={firstName:''}
 
+    this.sumPrice=0;
   }
   
+
   ngOnChanges(changes: SimpleChanges): void {
-    console.log("change child"+changes);
+     
+    this.productObject=this.productListbyIdToChild;
+ 
     for (let propName in changes) {  
       let change = changes[propName];
       let curVal  = JSON.stringify(change.currentValue);
@@ -45,14 +48,11 @@ constructor(){}
   }
  
   onSubmit(){
-    console.log("formname"+ this.model.firstName)
-  }
-  addBasket(){
-    console.log("formname"+ this.model.firstName)
+    this.basketListSubmit.push({"productElement":this.productObject,"quantity":this.quantity});
+    this.sumPrice=this.sumPrice+this.basketService.calculPriceBasket(this.productObject.price,this.productObject.idOffer)*this.quantity;
+    console.log ("Block statement execution no." +this.sumPrice);
     
   }
-  close() {
-     
-  }
+
 
 }

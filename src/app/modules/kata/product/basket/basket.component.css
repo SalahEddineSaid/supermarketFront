@@ -308,3 +308,21 @@
   .example-header-image {
     background-size: cover;
   }
+  .center-screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 50vh;
+    min-width: 80vh;
+  }
+  .center-screen-total {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 20vh;
+    min-width: 80vh;
+  }
